@@ -1,18 +1,18 @@
 %include	/usr/lib/rpm/macros.php
 %define		_class		Net
 %define		_subclass	DNSBL
-%define		_status		beta
+%define		_status		stable
 %define		_pearname	%{_class}_%{_subclass}
 
 Summary:	%{_pearname} - DNSBL Checker
 Summary(pl):	%{_pearname} - Odpytywanie DNSBL
 Name:		php-pear-%{_pearname}
-Version:	0.5.4
+Version:	1.0.0
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	24b43fdc8ab393c8ba0bc8a2b1ee2855
+# Source0-md5:	fcc53573625e56cf53c053678ae7ada7
 URL:		http://pear.php.net/package/Net_DNSBL/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 Requires:	php-pear

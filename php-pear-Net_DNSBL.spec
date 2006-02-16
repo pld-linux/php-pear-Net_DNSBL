@@ -8,7 +8,7 @@ Summary:	%{_pearname} - DNSBL Checker
 Summary(pl):	%{_pearname} - Odpytywanie DNSBL
 Name:		php-pear-%{_pearname}
 Version:	1.0.0
-Release:	2
+Release:	3
 Epoch:		0
 License:	PHP 2.02
 Group:		Development/Languages/PHP
@@ -19,8 +19,8 @@ BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-common >= 3:4.3.6
 Requires:	php-pear
 Requires:	php-pear-Cache_Lite >= 1.3.1
-Requires:	php-pear-Net_CheckIP >= 1.1
 Requires:	php-pear-HTTP_Request >= 1.2.3
+Requires:	php-pear-Net_CheckIP >= 1.1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,6 +50,9 @@ Testy dla PEAR::%{_pearname}.
 
 %prep
 %pear_package_setup
+mv ./%{php_pear_dir}/tests/%{_pearname}/{tests/*,}
+rmdir ./%{php_pear_dir}/tests/%{_pearname}/tests
+rm -rf .%{php_pear_dir}/tests/Net_DNSBL/Tests
 
 %install
 rm -rf $RPM_BUILD_ROOT

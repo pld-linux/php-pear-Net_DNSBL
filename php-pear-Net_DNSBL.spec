@@ -5,7 +5,7 @@
 %define		_pearname	%{_class}_%{_subclass}
 
 Summary:	%{_pearname} - DNSBL Checker
-Summary(pl):	%{_pearname} - Odpytywanie DNSBL
+Summary(pl.UTF-8):   %{_pearname} - Odpytywanie DNSBL
 Name:		php-pear-%{_pearname}
 Version:	1.2.1
 Release:	1
@@ -31,15 +31,15 @@ Checks if a given Host or URL is listed on an DNSBL or SURBL.
 
 In PEAR status of this package is: %{_status}.
 
-%description -l pl
-Za pomoc± tej klasy mo¿na sprawdziæ czy dany host lub URL jest wpisany
+%description -l pl.UTF-8
+Za pomocÄ… tej klasy moÅ¼na sprawdziÄ‡ czy dany host lub URL jest wpisany
 na listy DNSBL lub SURBL.
 
 Ta klasa ma w PEAR status: %{_status}.
 
 %package tests
 Summary:	Tests for PEAR::%{_pearname}
-Summary(pl):	Testy dla PEAR::%{_pearname}
+Summary(pl.UTF-8):   Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 AutoReq:	no
@@ -48,7 +48,7 @@ AutoProv:	no
 %description tests
 Tests for PEAR::%{_pearname}.
 
-%description tests -l pl
+%description tests -l pl.UTF-8
 Testy dla PEAR::%{_pearname}.
 
 %prep

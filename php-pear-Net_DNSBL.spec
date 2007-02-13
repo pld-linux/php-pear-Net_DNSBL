@@ -5,7 +5,7 @@
 %define		_pearname	%{_class}_%{_subclass}
 
 Summary:	%{_pearname} - DNSBL Checker
-Summary(pl.UTF-8):   %{_pearname} - Odpytywanie DNSBL
+Summary(pl.UTF-8):	%{_pearname} - Odpytywanie DNSBL
 Name:		php-pear-%{_pearname}
 Version:	1.2.1
 Release:	1
@@ -39,7 +39,7 @@ Ta klasa ma w PEAR status: %{_status}.
 
 %package tests
 Summary:	Tests for PEAR::%{_pearname}
-Summary(pl.UTF-8):   Testy dla PEAR::%{_pearname}
+Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 AutoReq:	no

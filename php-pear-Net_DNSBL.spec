@@ -8,7 +8,7 @@ Summary:	%{_pearname} - DNSBL Checker
 Summary(pl.UTF-8):	%{_pearname} - Odpytywanie DNSBL
 Name:		php-pear-%{_pearname}
 Version:	1.3.0
-Release:	2
+Release:	3
 Epoch:		0
 License:	PHP 2.02
 Group:		Development/Languages/PHP
@@ -20,11 +20,16 @@ BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	php-common >= 3:4.3.11
 Requires:	php-pear
-Requires:	php-pear-Cache_Lite >= 1.4.1
-Requires:	php-pear-HTTP_Request >= 1.2.3
 Requires:	php-pear-Net_CheckIP >= 1.1
+Requires:	php-pear-Net_DNS >= 1.0.0
+Requires:	php-pear-PEAR >= 1:1.4.0
+Suggests:	php-pear-Cache_Lite >= 1.4.1
+Suggests:	php-pear-HTTP_Request >= 1.2.3
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# exclude optional dependencies
+%define		_noautoreq	'pear(Cache/Lite.php)' 'pear(HTTP/Request.php)'
 
 %description
 Checks if a given Host or URL is listed on an DNSBL or SURBL.
@@ -42,8 +47,8 @@ Summary:	Tests for PEAR::%{_pearname}
 Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-AutoReq:	no
 AutoProv:	no
+AutoReq:	no
 
 %description tests
 Tests for PEAR::%{_pearname}.

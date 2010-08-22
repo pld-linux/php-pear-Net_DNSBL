@@ -1,14 +1,11 @@
 %include	/usr/lib/rpm/macros.php
-%define		_class		Net
-%define		_subclass	DNSBL
 %define		_status		stable
-%define		_pearname	%{_class}_%{_subclass}
+%define		_pearname	Net_DNSBL
 Summary:	%{_pearname} - DNSBL Checker
 Summary(pl.UTF-8):	%{_pearname} - Odpytywanie DNSBL
 Name:		php-pear-%{_pearname}
 Version:	1.3.3
 Release:	2
-Epoch:		0
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -22,6 +19,7 @@ Requires:	php-pear
 Requires:	php-pear-Net_CheckIP >= 1.1
 Requires:	php-pear-Net_DNS >= 1.0.0
 Requires:	php-pear-PEAR-core >= 1:1.4.0
+# should be suggests, not requires: http://pear.php.net/bugs/bug.php?id=17789
 Suggests:	php-pear-Cache_Lite >= 1.4.1
 Suggests:	php-pear-HTTP_Request >= 1.2.3
 BuildArch:	noarch
@@ -45,7 +43,7 @@ Ta klasa ma w PEAR status: %{_status}.
 Summary:	Tests for PEAR::%{_pearname}
 Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 AutoProv:	no
 AutoReq:	no
 
@@ -73,8 +71,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc install.log
 %{php_pear_dir}/.registry/*.reg
-%{php_pear_dir}/%{_class}/*.php
-%{php_pear_dir}/%{_class}/%{_subclass}
+%{php_pear_dir}/Net/DNSBL.php
+%{php_pear_dir}/Net/DNSBL
 
 %files tests
 %defattr(644,root,root,755)

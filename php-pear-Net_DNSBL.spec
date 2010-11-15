@@ -4,12 +4,12 @@
 Summary:	%{_pearname} - DNSBL Checker
 Summary(pl.UTF-8):	%{_pearname} - Odpytywanie DNSBL
 Name:		php-pear-%{_pearname}
-Version:	1.3.3
-Release:	2
+Version:	1.3.4
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	0d9faf8feeaf4f8528d88a4a32f3ca44
+# Source0-md5:	7b5ba371c60dc4f97fec669d8e98c2da
 URL:		http://pear.php.net/package/Net_DNSBL/
 BuildRequires:	php-pear-PEAR >= 1:1.4.0-0.b1
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -22,11 +22,12 @@ Requires:	php-pear-PEAR-core >= 1:1.4.0
 # should be suggests, not requires: http://pear.php.net/bugs/bug.php?id=17789
 Suggests:	php-pear-Cache_Lite >= 1.4.1
 Suggests:	php-pear-HTTP_Request >= 1.2.3
+Obsoletes:	php-pear-Net_DNSBL-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # exclude optional dependencies
-%define		_noautoreq	'pear(Cache/Lite.php)' 'pear(HTTP/Request.php)'
+%define		_noautoreq	pear(Cache/Lite.php) pear(HTTP/Request.php)
 
 %description
 Checks if a given Host or URL is listed on an DNSBL or SURBL.
@@ -39,30 +40,19 @@ na listy DNSBL lub SURBL.
 
 Ta klasa ma w PEAR status: %{_status}.
 
-%package tests
-Summary:	Tests for PEAR::%{_pearname}
-Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
-Group:		Development/Languages/PHP
-Requires:	%{name} = %{version}-%{release}
-AutoProv:	no
-AutoReq:	no
-
-%description tests
-Tests for PEAR::%{_pearname}.
-
-%description tests -l pl.UTF-8
-Testy dla PEAR::%{_pearname}.
-
 %prep
 %pear_package_setup
-mv ./%{php_pear_dir}/tests/%{_pearname}/{tests/*,}
-rmdir ./%{php_pear_dir}/tests/%{_pearname}/tests
-rm -rf .%{php_pear_dir}/tests/Net_DNSBL/Tests
+
+# phing build file
+rm .%{php_pear_dir}/data/Net_DNSBL/build.xml
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
+
+# tests should not be packaged
+rm -rf $RPM_BUILD_ROOT%{php_pear_dir}/tests/%{_pearname}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -73,7 +63,3 @@ rm -rf $RPM_BUILD_ROOT
 %{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/Net/DNSBL.php
 %{php_pear_dir}/Net/DNSBL
-
-%files tests
-%defattr(644,root,root,755)
-%{php_pear_dir}/tests/*

@@ -4,12 +4,12 @@
 Summary:	%{_pearname} - DNSBL Checker
 Summary(pl.UTF-8):	%{_pearname} - Odpytywanie DNSBL
 Name:		php-pear-%{_pearname}
-Version:	1.3.4
+Version:	1.3.6
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	7b5ba371c60dc4f97fec669d8e98c2da
+# Source0-md5:	a077fecc1996049052ca1e7cf82670ae
 URL:		http://pear.php.net/package/Net_DNSBL/
 BuildRequires:	php-pear-PEAR >= 1:1.4.0-0.b1
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -21,7 +21,7 @@ Requires:	php-pear-Net_DNS >= 1.0.0
 Requires:	php-pear-PEAR-core >= 1:1.4.0
 # should be suggests, not requires: http://pear.php.net/bugs/bug.php?id=17789
 Suggests:	php-pear-Cache_Lite >= 1.4.1
-Suggests:	php-pear-HTTP_Request >= 1.2.3
+Suggests:	php-pear-HTTP_Request2 >= 2.0.0
 Obsoletes:	php-pear-Net_DNSBL-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

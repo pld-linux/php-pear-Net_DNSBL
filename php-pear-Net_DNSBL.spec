@@ -4,12 +4,12 @@
 Summary:	%{_pearname} - DNSBL Checker
 Summary(pl.UTF-8):	%{_pearname} - Odpytywanie DNSBL
 Name:		php-pear-%{_pearname}
-Version:	1.3.6
-Release:	2
+Version:	1.3.7
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	a077fecc1996049052ca1e7cf82670ae
+# Source0-md5:	6e15d7802ea8dfa61acc2691411ac29b
 URL:		http://pear.php.net/package/Net_DNSBL/
 BuildRequires:	php-pear-PEAR >= 1:1.4.0-0.b1
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
